@@ -1,0 +1,41 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+comando.txt
+
+# Archivos y carpetas de Gradio
+.gradio/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos virtuales
+venv/
+.env/
+.venv/
+
+# Archivos de configuración específicos del IDE
+.vscode/
+.idea/
+
+# Archivos de logs y temporales
+*.log
+*.tmp
+
+# Archivos sensibles
+.env
+config.json
+secrets.json
+
+# Otros archivos generados por el sistema
+.DS_Store
+Thumbs.db
