@@ -85,6 +85,5 @@ def create_interface():
         """)
     return demo
 
-# Lanzar la interfaz
 demo = create_interface()
-demo.launch(debug=True)
+demo.launch(debug=True, share=True)
