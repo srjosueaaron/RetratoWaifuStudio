@@ -2,17 +2,18 @@ import gradio as gr
 from model import get_device, load_model
 from utils import build_prompt, generate_image
 from translations import TRANSLATIONS
+from image_guide import create_guide_tab
 
 device = get_device()
 pipe = load_model(device)
 
-def create_interface():
-    with gr.Blocks(theme=gr.themes.Soft()) as demo:
+def create_main_tab():
+    with gr.Blocks(theme=gr.themes.Soft()) as main_tab:
         gr.Markdown("""
         <div style="text-align: center; margin-bottom: 30px;">
             <h1 style="font-size: 2.5em; color: #4F46E5; font-weight: bold;">🎨Retrato WaifuStudio</h1>
             <h3 style="color: #6B7280;">Genera fotos de perfil estilo anime totalmente personalizables</h3>
-            <p style="font-size: 0.9em; color: #9CA3AF; margin-top: 20px;">Si disfrutas de esta herramienta y deseas apoyar su desarrollo continuo, considera realizar una donación sin restricciones para contribuir a futuras mejoras, incluyendo la posibilidad de generar contenido sin limitaciones, tanto creativo como explícito.</p>
+            <p style="font-size: 0.9em; color: #9CA3AF; margin-top: 20px;">Si disfrutas de esta herramienta y deseas apoyar su desarrollo continuo, considera realizar una donación para contribuir a futuras mejoras, incluyendo la posibilidad de generar contenido sin limitaciones, tanto creativo como explícito.</p>
             <a href="https://paypal.me/srjosuearon?country.x=MX&locale.x=es_XC" style="font-size: 1em; color: #4F46E5; text-decoration: underline;">Apoya con una donación</a>            
         </div>
         """)
@@ -34,7 +35,11 @@ def create_interface():
 
                 prompt_output = gr.Textbox(label="📝 Características de la imagen", interactive=True)
                 image_output = gr.Image(label="📥 Imagen generada")
-
+                
+                gr.Markdown("""
+                ```bash
+                Proximamente ejemplos completos 😎
+                """)
         def update_prompt(*args):
             kwargs = {key: value for key, value in zip(TRANSLATIONS.keys(), args)}
             return build_prompt(**kwargs)
@@ -76,13 +81,25 @@ def create_interface():
                 </button>
             </div>
         """)
-
-        gr.HTML("""
-        <footer style="text-align: center; margin-top: 50px; padding: 20px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; font-size: 0.9em; color: #6b7280;">
-            <p>© 2024 WaifuCreator. Usando el modelo Waifu Diffusion de <a href="https://huggingface.co/hakurei/waifu-diffusion" style="font-size: 1em; color: #4F46E5; text-decoration: underline;">Hakurei</a></p>
-            <p>Desarrollado con ❤️ por <a href="https://www.linkedin.com/in/srjosueaaron" style="font-size: 1em; color: #4F46E5; text-decoration: underline;">@srjosueaaron</a></p>
-        </footer>
+        
+        gr.Markdown(""" 
+        ---
+        
+        © 2024 Retrato WaifuStudio. Usando el modelo Waifu Diffusion de [Hakurei](https://huggingface.co/hakurei/waifu-diffusion).
+        
+        Desarrollado con ❤️ por [@srjosueaaron](https://www.instagram.com/srjosueaaron/).
         """)
+
+    return main_tab
+
+def create_interface():
+    with gr.Blocks(theme=gr.themes.Soft()) as demo:
+        with gr.Tabs():
+            with gr.Tab("Retrato WaifuStudio"):
+                create_main_tab()
+
+            with gr.Tab("Guía para generar"):
+                create_guide_tab()
     return demo
 
 demo = create_interface()
