@@ -3,7 +3,7 @@ from torch.cuda.amp import autocast
 from translations import CATEGORIES, TRANSLATIONS
 
 def build_prompt(**kwargs):
-    default_params = ["masterpiece", "best quality", "1girl", "watercolor", "portrait", "upper body", "looking at viewer", "anime screenshot", "highres"]
+    default_params = ["masterpiece", "best quality", "1girl", "watercolor", "portrait", "upper body", "looking at viewer", "cute", "highres"]
 
     for key, values in kwargs.items():
         if values:

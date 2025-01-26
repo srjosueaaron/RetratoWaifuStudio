@@ -30,13 +30,15 @@ Tu apoyo puede hacer que este proyecto crezca 🚀. Las donaciones permitirán:
 ## 🚀 Ejecución en Google Colab (intermedio)
 Puedes ejecutar **Retrato WaifuStudio** directamente en Google Colab sin necesidad de instalar nada en tu equipo. Solo haz clic en el botón de abajo:
 
+👇👇👇👇👇👇
+
 [![Abrir en Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1n4m5If8gQNmNrvamGmNj-jwObyf8IcHE?usp=sharing)
 
 ### Ventajas:
 - **Sin hardware local:** Utiliza los recursos gratuitos de Google Colab.
 - **GPU opcional:** Mejora el rendimiento activando una GPU (Configuración: Entorno de ejecución > Cambiar tipo de entorno de ejecución > Acelerador de hardware: GPU T4).
 
-## 🖥️ Instalación loca(
+## 🖥️ Instalación local (difícil)
 Si prefieres ejecutar Retrato WaifuStudio en tu equipo, ten en cuenta los siguientes requisitos:
 - **Tarjeta gráfica potente.**
 - **Memoria RAM suficiente.**
